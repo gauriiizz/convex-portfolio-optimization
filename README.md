@@ -40,13 +40,13 @@ the solver places the largest weights onto the eigenvectors corresponding to the
 
 Following Ledoit and Wolf (2004), we regularize $S$ by shrinking it toward a well-conditioned scalar target $F = \bar{\lambda} I$, where $\bar{\lambda} = \frac{1}{N}\text{Tr}(S)$:
 
-$$\hat{\Sigma}_{\text{shrunk}} = (1 - \delta^*) S + \delta^* F$$
+$$\hat{\Sigma}_{\text{shrunk}} = (1 - \delta) S + \delta F$$
 
-The parameter $\delta^* \in [0, 1]$ is derived analytically by minimizing the expected Frobenius loss $\mathbb{E}[\Vert{}\hat{\Sigma} - \Sigma\Vert{}_F^2]$.
+The parameter $\delta \in [0, 1]$ is derived analytically by minimizing the expected Frobenius loss $\mathbb{E}[\Vert{}\hat{\Sigma} - \Sigma\Vert{}_F^2]$.
 
 This transformation lifts the spectral floor:
 
-$$\lambda_i^{\text{shrunk}} = (1 - \delta^*) \lambda_i + \delta^* \bar{\lambda}$$
+$$\lambda_i^{\text{shrunk}} = (1 - \delta) \lambda_i + \delta \bar{\lambda}$$
 
 eliminating the near-zero eigenvalue arbitrage that corrupts quadratic solvers.
 
